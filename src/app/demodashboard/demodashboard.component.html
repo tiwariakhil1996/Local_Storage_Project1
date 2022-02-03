@@ -1,0 +1,131 @@
+<!-- This code is for display tha data and delete and Edit click event... -->
+<table>
+    <tr>
+      <th>Index</th>
+      <th>Sr.no</th>
+      <th>FIRST NAME</th>
+      <th>LAST Name</th>
+      <th>USERNAME</th>
+      <th>EMAIL</th>
+      <th>MOBILE</th>
+      <th>GENDER</th>
+      <th>Hobbies</th>
+      <th>Address</th>
+      <th>Date & Time</th>
+      <th>Country</th>
+      <th>State</th>
+      <th>City</th>
+      <th>Image</th>
+      <th>ACTION</th>
+    </tr>
+    <tr *ngFor="let user of demoDetails;let c=index">
+      <td>{{c+1}}</td>
+      <td>{{user.id}}</td>
+      <td>{{user.firstname}}</td>
+      <td>{{user.lastname}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.mobile}}</td>
+      <td>{{user.gender}}</td>
+      <td>{{user.txtHobbies}}</td>
+      <td>{{user.txtAddress}}</td>
+      <td>{{user.txtDateTime}}</td>
+      <td>{{user.country}}</td>
+      <td>{{user.state}}</td>
+      <td>{{user.city}}</td>
+     <img style="width:50px;height:50px;" src={{user.image}}>
+  
+      <td>
+        <button type="button" (click)="deleteRow(user.id)" class="btn btn-danger btn-sm">Remove</button>
+        <button class="btn btn-primary btn-sm" (click)="openBackDropCustomClass(content,user)" type="button">Edit</button>
+  
+        <!-- <button class="btn btn-primary">Edit</button>
+            <button  ng-click="">Delete</button> -->
+  
+        <!-- <a href="/dashboard" ng-click="deleteRow()" class="btn btn-danger btn-sm">Delete</a>
+            <a href="#" ng-click="remove(post.id)" class="btn btn-primary btn-sm">Edit</a> -->
+      </td>
+    </tr>
+  </table>
+  
+  
+  <!-- this logic for popup edit logic -->
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Edit the Details:</h4>
+    </div>
+  
+    <div class="modal-body">
+      <div>
+        <div class="form-group">
+          <label>First name</label>
+          <input type="email" [(ngModel)]="demoDetail.firstname" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>Last Name </label>
+          <input type="text" [(ngModel)]="demoDetail.lastname" class="form-control">
+        </div>
+        <div class="form-group">
+          <label>User name</label>
+          <input type="text" [(ngModel)]="demoDetail.username" class="form-control" disabled>
+        </div>
+  
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" [(ngModel)]="demoDetail.email" class="form-control" disabled>
+        </div>
+  
+        <div class="form-group">
+          <label>Mobile</label>
+          <input type="text" [(ngModel)]="demoDetail.mobile" class="form-control">
+        </div>
+  
+        <label>Gender</label> <br>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" [(ngModel)]="demoDetail.gender"
+             value="Male" name="gender" checked>
+          <label class="form-check-label" for="inlineRadio1">Male</label>
+
+          <input class="form-check-input" type="radio" [(ngModel)]="demoDetail.gender"
+             value="Female" name="gender">
+          <label class="form-check-label" for="inlineRadio2">Female</label>
+        </div>
+
+        <div class="form-group">
+            <label>Hobbies</label>
+            <input type="text" [(ngModel)]="demoDetail.txtHobbies" class="form-control" name="txtHobbies">
+          </div>
+        <div class="form-group">
+            <label>Address</label>
+            <input type="text" [(ngModel)]="demoDetail.txtAddress" class="form-control" name="txtAddress">
+          </div>
+        <div class="form-group">
+            <label>Date & Time</label>
+            <input type="datetime-local" [(ngModel)]="demoDetail.txtDateTime" class="form-control" name="txtDateTime">
+          </div>
+          <div class="form-group">
+            <label>Country</label>
+            <input type="text" [(ngModel)]="demoDetail.country" class="form-control" name="country" disabled>
+          </div>
+          <div class="form-group">
+            <label>State</label>
+            <input type="text" [(ngModel)]="demoDetail.state" class="form-control" name="state">
+          </div>
+          <div class="form-group">
+            <label>City</label>
+            <input type="text" [(ngModel)]="demoDetail.city" class="form-control" name="city">
+          </div>
+        <button type="submit" style="margin: auto;" (click)="onupdate()" class="btn btn-outline-primary">update</button>
+      </div>
+  
+    </div>
+  
+  </ng-template>
+  
+  <ng-template #longContent let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">Modal title</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>

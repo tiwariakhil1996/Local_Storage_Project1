@@ -1,0 +1,133 @@
+<router-outlet></router-outlet>
+<h1 align="center">Demo Form</h1>
+<form>
+    <header>{{signup}}</header>
+    <table align="center">
+        <tr>
+            <td>First name</td>
+            <td><input class="form-control" type="text" [(ngModel)]="demoDetail.firstname" (blur)="firstnameValidation();" name="firstname" required>{{demoDetail.firstname}}</td>
+            <td style="color:red;">{{errorMessage}}</td>
+        </tr>
+        <tr>
+            <td>Last name</td>
+            <td><input type="text" [(ngModel)]="demoDetail.lastname" (blur)="lastnameValidation();"
+                    name="lastname">{{demoDetail.lastname}}</td>
+            <td style="color:red;">{{errorMessage}}</td>
+        </tr>
+        <tr>
+            <td>Username</td>
+            <td><input type="text" (blur)="usernameValidation();" [(ngModel)]="demoDetail.username" name="username">
+            </td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>
+                <input type="email" [(ngModel)]="demoDetail.email" (blur)="checkEmailValidation()" name="email">
+            </td>
+        </tr>
+        <tr>
+            <td>Mobile</td>
+            <td><input type="text" (blur)="mobilevalidation();" [(ngModel)]="demoDetail.mobile" name="mobile"></td>
+            <td style="color:red;">{{errorMessage}}</td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <label>
+                <td>Male<input type="radio" [(ngModel)]="demoDetail.gender" name="gender" value="male" checked required>
+                </td>
+            </label>
+            <label>
+                <td>Female<input type="radio" [(ngModel)]="demoDetail.gender" name="gender" value="female"></td>
+            </label>
+        </tr>
+        <tr>
+            <td>Image</td>
+            <td>
+                <div class="image-upload">
+                    <input type="file" class="form-control" accept="image/*" (change)="OnImageChange($event)">
+                </div>
+            </td>
+            <td style="color:red;">{{errorMessage}}</td>
+        </tr>
+        <tr>
+            <td>Hobbies</td>
+            <td>
+                Cricket<input type="checkbox" [(ngModel)]="demoDetail.txtHobbies[0]" name="txtHobbies" value="cricket">
+                Chess<input type="checkbox" [(ngModel)]="demoDetail.txtHobbies[1]" name="txtHobbies" value=chess>
+                Football<input type="checkbox" [(ngModel)]="demoDetail.txtHobbies[2]" name="txtHobbies"
+                    value="football">
+            </td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td><textarea rows="3" cols="40" placeholder="Enter the Address" name="txtAddress"
+                    [(ngModel)]="demoDetail.txtAddress">
+
+                </textarea></td>
+        </tr>
+        <tr>
+            <td>Date & Time </td>
+            <td>
+                <input type="datetime-local" name="txtDateTime" [(ngModel)]="demoDetail.txtDateTime">
+            </td>
+        </tr>
+        <tr>
+            <div class="form-group">
+
+                <label>Country</label>
+                <td>
+                    <select placeholder="Country" (change)="changeCountry($event.target.value)"
+                        [(ngModel)]="demoDetail.country" name="country">
+                        <option>Select Country</option>
+                        <option *ngFor="let count of countryList" type="text" name="country" [value]="count.name">
+                            {{count.name}}
+                        </option>
+                    </select>
+                    </td>
+
+
+                <label>State</label>
+                <td>
+                    <select placeholder="States" (change)="changeState($event.target.value)"
+                        [(ngModel)]="demoDetail.state" name="state">
+                        <option>Select State</option>
+                        <option *ngFor="let count1 of states" name="state" type="text" [value]="count1">{{count1}}
+                        </option>
+                    </select>
+                </td>
+
+
+
+                <label>City</label>
+                <td>
+                    <select placeholder="Anycity" [(ngModel)]="demoDetail.city" name="city">
+                        <option>select city</option>
+                        <option *ngFor="let city of cities" type="text" name="city" [value]="city" >{{city}} </option>
+                    </select>
+                </td>
+
+            </div>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" [(ngModel)]="demoDetail.password" name="password">{{demoDetail.password}}
+            </td>
+        </tr>
+
+        <tr>
+            <td>Confirm Password</td>
+            <td><input type="password" [(ngModel)]="demoDetail.confirmpassword"
+                    name="confirmpassword">{{demoDetail.confirmpassword}}</td>
+            <td style="color:red;">{{errorMessage}}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="button" class="btn btn-success" (click)="submitForm();" value="Register">Save</button>
+            </td>
+            <label>
+                <td>If you have already account?<a routerLink="/login">singin Here</a></td>
+            </label>
+        </tr>
+    </table>
+</form>

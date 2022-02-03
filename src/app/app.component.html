@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"></a>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/login">Login <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/register">Register <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/dashboard">Dashboard<span class="sr-only">(current)</span></a>
+      </li>
+     
+        
+     
+    </ul>
+  </div>
+</nav>
+
+
+<div class="mainpage">
+  <div class="menu">
+    <table>
+      <tr>
+        <td><a routerLink="/">Home</a></td>
+        <td><a routerLink="login">Login</a></td>
+        <td><a routerLink="register">Register</a></td>
+        <td><a routerLink="dashboard">Dashboard</a></td>
+        <td><a routerLink="formvalidation">Formvalidation</a></td>
+        <td><a routerLink="demoform">demoform</a></td>
+        <td><a routerLink="demodashboard">Demo Dashboard </a></td>
+
+      </tr>
+    </table>
+  </div>
+  <div class="pagecontain">
+    <div ng-include="'login.html'">
+    
+
+    </div>
+    <div ng-include="'register.html'">
+
+    </div>
+  </div>
+  <router-outlet>
+  </router-outlet>
+  <div class="footer">
+    <h5 class="center">&copy;Sales Tracking System</h5>
+  </div>
+</div>
+

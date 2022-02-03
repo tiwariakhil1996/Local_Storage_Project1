@@ -1,0 +1,23 @@
+<router-outlet>
+</router-outlet>
+<h1 align="center">Login Form</h1>
+<form>
+    <header>{{signin}}</header>
+    <table align="center">
+
+        <tr>
+            <td>Username:</td>
+            <td><input type="name" [(ngModel)]="login.mobile" [(ngModel)]="login.username" [(ngModel)]="login.email"name="mobile" placeholder="Mobile" required></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" [(ngModel)]="login.password" name="password" placeholder="Password" required>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button type="button" class="btn btn-primary" (click)="loginForm()" name="login">Signin</button></td>
+            <td>If you don't have an account?<a routerLink="/register">Signup Here</a></td>
+        </tr>
+    </table>
+</form>

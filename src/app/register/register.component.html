@@ -1,0 +1,80 @@
+<router-outlet></router-outlet>
+<h1 align="center">Registration Form</h1>
+<form>
+    <header>{{signup}}</header>
+    <table align="center">
+        <tr>
+            <td>First name</td>
+            <td><input class="form-con" type="text" [(ngModel)]="registerDetail.firstname"
+                    (blur)="firstnameValidation();" name="firstname" required>{{registerDetail.firstname}}</td>
+            <td style="color:red;">{{errorMessage}}</td>
+        </tr>
+        <tr>
+            <td>Last name</td>
+            <td><input type="text" [(ngModel)]="registerDetail.lastname" (blur)="lastnameValidation();"
+                    name="lastname">{{registerDetail.lastname}}</td>
+            <td style="color:red;">{{errorMessage}}</td>
+        </tr>
+        <tr>
+            <td>Username</td>
+            <td><input type="text" (blur)="usernameValidation();" [(ngModel)]="registerDetail.username" name="username">
+            </td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>
+                <input type="email" [(ngModel)]="registerDetail.email" (blur)="checkEmailValidation()" name="Email">
+            </td>
+        </tr>
+        <tr>
+            <td>Mobile</td>
+            <td><input type="text" (blur)="mobilevalidation();" [(ngModel)]="registerDetail.mobile" name="mobile"></td>
+            <td style="color:red;">{{errorMessage}}</td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+
+
+            <label>
+                <td>Male<input type="radio" [(ngModel)]="registerDetail.gender" name="gender" value="male" checked
+                        required></td>
+            </label>
+
+
+            <label>
+                <td>Female<input type="radio" [(ngModel)]="registerDetail.gender" name="gender" value="female"></td>
+            </label>
+
+
+        </tr>
+        <tr>
+            <td>Image</td>
+            <td>
+                <div class="image-upload">
+                <input type="file"  class="form-control" accept="image/*"  (change)="OnImageChange($event)">
+            </div>
+            </td>
+            <td style="color:red;">{{errorMessage}}</td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" [(ngModel)]="registerDetail.password" name="password">{{registerDetail.password}}
+            </td>
+        </tr>
+        <tr>
+            <td>Confirm Password</td>
+            <td><input type="password" [(ngModel)]="registerDetail.confirmpassword"
+                    name="confirmpassword">{{registerDetail.confirmpassword}}</td>
+            <td style="color:red;">{{errorMessage}}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="button" class="btn btn-success" (click)="submitForm();" value="Register">Register</button>
+            </td>
+            <label>
+                <td>If you have already account?<a routerLink="/login">singin Here</a></td>
+            </label>
+        </tr>
+    </table>
+</form>
